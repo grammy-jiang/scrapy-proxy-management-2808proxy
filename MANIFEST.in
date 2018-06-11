@@ -1,0 +1,15 @@
+include README.rst
+include AUTHORS
+include INSTALL
+include LICENSE
+include MANIFEST.in
+include scrapy_proxy_management_2808proxy/VERSION
+include scrapy_proxy_management_2808proxy/mime.types
+recursive-include scrapy_proxy_management_2808proxy/templates *
+recursive-include scrapy_proxy_management_2808proxy license.txt
+recursive-include docs *
+prune docs/build
+recursive-include extras *
+recursive-include bin *
+recursive-include tests *
+global-exclude __pycache__ *.py[cod]

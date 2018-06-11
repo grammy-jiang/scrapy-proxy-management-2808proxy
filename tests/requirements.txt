@@ -1,0 +1,5 @@
+mock
+pytest
+pytest-twisted
+pytest-cov
+testfixtures
