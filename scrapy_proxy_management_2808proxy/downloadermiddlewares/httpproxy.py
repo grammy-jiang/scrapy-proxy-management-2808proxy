@@ -1,4 +1,5 @@
 import base64
+
 from six.moves.urllib.request import getproxies, proxy_bypass
 from six.moves.urllib.parse import unquote, urlunparse
 try:
@@ -9,6 +10,10 @@ except ImportError:
 from scrapy.utils.httpobj import urlparse_cached
 from scrapy.exceptions import NotConfigured
 from scrapy.utils.python import to_bytes
+from scrapy.settings import SETTINGS_PRIORITIES
+
+from scrapy_proxy_management_2808proxy import unfreeze_settings
+from scrapy_proxy_management_2808proxy.settings import default_settings
 
 
 class HttpProxyMiddleware(object):
@@ -21,8 +26,14 @@ class HttpProxyMiddleware(object):
 
     @classmethod
     def from_crawler(cls, crawler):
+        with unfreeze_settings(crawler.settings) as settings:
+            settings.setmodule(
+                module=default_settings,
+                priority=SETTINGS_PRIORITIES['default']
+            )
         if not crawler.settings.getbool('HTTPPROXY_ENABLED'):
             raise NotConfigured
+
         auth_encoding = crawler.settings.get('HTTPPROXY_AUTH_ENCODING')
         return cls(auth_encoding)
 
