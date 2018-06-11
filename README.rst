@@ -14,7 +14,7 @@ scrapy-proxy-management-2808proxy
    :target: https://travis-ci.org/grammy-jiang/Scrapy-Proxy-Management-2808proxy
    :alt: Build Status
 
-.. image:: https://img.shields.io/badge/wheel-yes-brightgreen.svg
+.. image:: https://img.shields.io/pypi/wheel/Scrapy-Proxy-Management-2808proxy.svg
    :target: https://pypi.python.org/pypi/Scrapy-Proxy-Management-2808proxy
    :alt: Wheel Status
 
